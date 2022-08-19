@@ -1,0 +1,229 @@
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
+
+<style>
+    body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, 
+pre, form, fieldset, input, textarea, p, blockquote, th, td { 
+  padding:0;
+  margin:0;}
+
+fieldset, img {border:0}
+
+ol, ul, li {list-style:none}
+
+:focus {outline:none}
+
+body,
+input,
+textarea,
+select {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  color: #4c4c4c;
+}
+
+p {
+  font-size: 12px;
+  width: 150px;
+  display: inline-block;
+  margin-left: 18px;
+}
+h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #4c4c4c;
+  text-align: center;
+  padding-top: 10px;
+  margin-bottom: 10px;
+}
+
+html{
+  background-color: #000000;
+}
+
+.testbox {
+  margin: 20px auto;
+  width: 1000px; 
+  height: 1150px; 
+  -webkit-border-radius: 8px/7px; 
+  -moz-border-radius: 8px/7px; 
+  border-radius: 8px/7px; 
+  background-color: #ebebeb; 
+  -webkit-box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
+  -moz-box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
+  box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
+  border: solid 1px #cbc9c9;
+}
+
+input[type=radio] {
+  visibility: hidden;
+}
+
+form{
+  margin: 0 70px;
+}
+
+hr{
+  color: #a9a9a9;
+  opacity: 0.3;
+}
+
+input[type=text]{
+  width: 200px; 
+  height: 39px; 
+  -webkit-border-radius: 0px 4px 4px 0px/5px 5px 4px 4px; 
+  -moz-border-radius: 0px 4px 4px 0px/0px 0px 4px 4px; 
+  border-radius: 0px 4px 4px 0px/5px 5px 4px 4px; 
+  background-color: #fff; 
+  -webkit-box-shadow: 1px 2px 5px rgba(0,0,0,.09); 
+  -moz-box-shadow: 1px 2px 5px rgba(0,0,0,.09); 
+  box-shadow: 1px 2px 5px rgba(0,0,0,.09); 
+  border: solid 1px #cbc9c9;
+  margin-left: -5px;
+  margin-top: 13px; 
+  padding-left: 10px;
+}
+
+</style>
+
+<div class="testbox">
+  <h1>Car Price Prediction</h1>
+  <hr>
+<form action="/pred_link" method="post">
+<label>Car make</label>
+<select name="make_in">
+    <option value="0">Alfa-Romero</option>
+    <option value="1">Audi</option>
+    <option value="2">BMW</option>
+    <option value="3">Chevrolet</option>
+    <option value="4">Dodge</option>
+    <option value="5">Honda</option>
+    <option value="6">Isuzu</option>
+    <option value="7">Jaguar</option>
+    <option value="8">Mazda</option>
+    <option value="9">Mercedes-Benz</option>
+    <option value="10">Mercury</option>
+    <option value="11">Mitsubishi</option>
+    <option value="12">Nissan</option>
+    <option value="13">Peugeot</option>
+    <option value="14">Plymouth</option>
+    <option value="15">Porsche</option>
+    <option value="16">Renault</option>
+    <option value="17">Saab</option>
+    <option value="18">Subaru</option>
+    <option value="19">Toyota</option>
+    <option value="20">Volkswagen</option>
+    <option value="21">Volvo</option>
+</select>
+<br>
+<br>
+
+<label>Fuel type</label>
+<select name="fuel_in">
+    <option value="0">Gas</option>
+    <option value="1">Diesel</option>
+</select>
+<br>
+<br>
+
+<label>Body Style</label>
+<select name="body_in">
+    <option value="0">Convertible</option>
+    <option value="1">Hardtop</option>
+    <option value="2">Hatchback</option>
+    <option value="3">Sedan</option>
+    <option value="4">Wagon</option>
+</select>
+<br>
+<br>
+
+<label>Drive wheels</label>
+<select name="wheel_in">
+    <option value="0">4wd</option>
+    <option value="1">fwd</option>
+    <option value="2">rwd</option>
+</select>
+<br>
+<br>
+
+<label>Engine Location</label>
+<select name="engine_in">
+    <option value="0">Front</option>
+    <option value="1">Rear</option>
+</select>
+<br>
+<br>
+
+<label> "Engine Type [0-6] from (dohc,dohcv,l,ohc,ohcf,ohcv,rotor) </label>
+<select name="enginetype_in">
+    <option value="0">dohc</option>
+    <option value="1">dohcv</option>
+    <option value="2">l</option>
+    <option value="3">ohc</option>
+    <option value="4">ohcf</option>
+    <option value="5">ohcv</option>
+    <option value="6">rotor</option>
+</select>
+<br>
+<br>
+
+<label>Symbol [-2 to 3] </label>
+<select name="symbol_in">
+    <option value="-2">-2</option>
+    <option value="-1">-1</option>
+    <option value="0">0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+</select>
+<br>
+<br>
+
+<label>Normalized loss  </label>
+<br>
+<input type="text" name="normalized_in">
+<br>
+<br>
+
+<label>Width </label>
+<br>
+<input type="text" name="width_in">
+<br>
+<br>
+
+<label>height </label>
+<br>
+<input type="text" name="height_in">
+<br>
+<br>
+
+
+<label>Engine Size </label>
+<br>
+<input type="text" name="enginesize_in">
+<br>
+<br>
+
+
+<label>Horsepower </label>
+<br>
+<input type="text" name="horsepower_in">
+<br>
+<br>
+
+
+<label>City Milage </label>
+<br>
+<input type="text" name="citympg_in">
+<br>
+<br>
+
+<label>highway Milage </label>
+<br>
+<input type="text" name="highwaympg_in">
+<br>
+<br>
+
+<input type="submit" value="check">
+
+</form>
+</div>
